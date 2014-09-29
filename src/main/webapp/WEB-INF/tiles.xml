@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+ 
+    <!-- Master -->
+    <definition name="master.page" template="/public/template/master.jsp">
+        <put-attribute name="header" value="/public/template/header.jsp"/>
+        <put-attribute name="footer" value="/public/template/footer.jsp"/>
+    </definition>
+    
+    <!-- Admin Master -->
+    <definition name="admin.page" extends="master.page">
+    	<put-attribute name="header" value="/public/template/header.jsp"/>
+    	<put-attribute name="body" value="/public/template/sidebar.jsp"/>
+    	<put-attribute name="footer" value="/public/template/footer.jsp"/>
+    </definition>
+    
+    <!--Private Pages -->
+ <definition name="welcomeAdmin" extends="admin.page"/>
+ 
+  <definition name="welcomePage" extends="master.page">
+        <put-attribute name="body" value="/protected/welcomeAdmin.jsp"/>
+   </definition>
+  <definition name="contactsList" extends="master.page">
+        <put-attribute name="body" value="/protected/contacts/contacts.jsp"/>
+   </definition>
+   
+    <!-- Public Pages -->
+	<definition name="welcomeHome" extends="master.page">
+    	<put-attribute name="body" value="/public/welcomeHome.jsp"/>
+   </definition>
+   
+   <definition name="ourStory" extends="master.page">
+   		<put-attribute name="body" value="/public/ourStory.jsp"/>
+   </definition>
+   
+   <definition name="whoWeServe" extends="master.page">
+   		<put-attribute name="body" value="/public/whoWeServe.jsp"/>
+   </definition>
+   
+   <definition name="requestServices" extends="master.page">
+   		<put-attribute name="body" value="/public/requestServices.jsp"/>
+   </definition>
+   
+   <definition name="faq" extends="master.page">
+   		<put-attribute name="body" value="/public/faq.jsp"/>
+   </definition>
+   
+   <definition name="contactUs" extends="master.page">
+   		<put-attribute name="body" value="/public/contactUs.jsp"/>
+   </definition>
+   
+
+    <definition name="login" extends="master.page">
+        <put-attribute name="body" value="/public/login.jsp"/>
+    </definition>
+    
+    <definition name="uploadDocument" extends="master.page">
+        <put-attribute name="body" value="/public/uploadDocument.jsp"/>
+    </definition>
+    
+     <definition name="search" extends="master.page">
+        <put-attribute name="body" value="/public/search.jsp"/>
+    </definition>
+    
+    <definition name="publication" extends="master.page">
+        <put-attribute name="body" value="/public/publication.jsp"/>
+    </definition>
+    
+    
+  <!-- Flows -->
+    <definition name="selectItems" extends="master.page">
+    	<put-attribute name="body" value="/WEB-INF/flows/shoppingCart/shopping/selectItems.jsp"/>
+    </definition>
+    
+    <definition name="scheduleAppointment" extends="master.page">
+    	<put-attribute name="body" value="/WEB-INF/flows/shoppingCart/shopping/scheduleAppointment.jsp"/>
+    </definition>
+    
+    <definition name="paymentDetails" extends="master.page">
+    	<put-attribute name="body" value="/WEB-INF/flows/shoppingCart/shopping/paymentDetails.jsp"/>
+    </definition>
+    
+    <definition name="reviewDetails" extends="master.page">
+    	<put-attribute name="body" value="/WEB-INF/flows/shoppingCart/shopping/reviewDetails.jsp"/>
+    </definition>
+    
+    <definition name="appointmentCanceled" extends="master.page">
+    	<put-attribute name="body" value="/WEB-INF/flows/shoppingCart/shopping/appointmentCanceled.jsp"/>
+    </definition>
+    
+    <definition name="appointmentConfirmed" extends="master.page">
+    	<put-attribute name="body" value="/WEB-INF/flows/shoppingCart/shopping/appointmentConfirmed.jsp"/>
+    </definition>
+    
+  
+</tiles-definitions>

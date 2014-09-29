@@ -1,0 +1,44 @@
+<flow xmlns="http://www.springframework.org/schema/webflow"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/webflow
+				http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+				
+	 <persistence-context /> 
+				
+	<view-state id="selectItems" view="selectItems">
+		<transition on="submit" to="scheduleAppointment"/>
+		<transition on="cancel" to="requestServices"/>
+	</view-state>	
+				
+	<view-state id="scheduleAppointment" view="scheduleAppointment">
+		<transition on="submit" to="paymentDetails"/>
+		<transition on="back" to="selectItems"/>
+		<transition on="cancel" to="appointmentCanceled"/>
+	</view-state>	
+	
+	<view-state id="paymentDetails" view="paymentDetails">
+		<transition on="confirm" to="reviewDetails"/>
+		<transition on="back" to="scheduleAppointment"/>
+		<transition on="cancel" to="appointmentCanceled"/>
+	</view-state>
+	
+	<view-state id="reviewDetails">
+		<transition on="reviseItems" to="selectItems"/>
+		<transition on="revisePayment" to="paymentDetails"/>
+		<transition on="submit" to="appointmentConfirmed"/>
+		<transition on="cancel" to="appointmentCanceled"/>
+	</view-state>
+	
+	
+	
+	<end-state id="appointmentCancled"/>
+	<end-state id="appointmentConfirmed" commit="true"/>
+	
+	<global-transitions>
+		<transition on="login" to="login"/>
+		<transition on="logout" to="logout"/>
+	</global-transitions>
+				
+				
+				
+</flow>

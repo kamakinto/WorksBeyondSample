@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+    <WatchedResource>WEB-INF/web.xml</WatchedResource>
+ 
+    <Resource
+           name="jdbc/tomcatDataSource"
+            auth="Container"
+            type="javax.sql.DataSource"
+            initialSize="1"
+            maxActive="20"
+            maxIdle="3"
+            minIdle="1"
+            reloadable="true"
+            maxWait="5000"
+            username="root"
+            password="hitokiru"
+            driverClassName="com.mysql.jdbc.Driver"
+            validationQuery="SELECT 'OK'"
+            testWhileIdle="true"
+            testOnBorrow="true"
+            numTestsPerEvictionRun="5"
+            timeBetweenEvictionRunsMillis="30000"
+            minEvictableIdleTimeMillis="60000"
+            url="jdbc:mysql://127.0.0.1:3306/worksBeyond" />
+            </Context>
